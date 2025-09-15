@@ -2,13 +2,22 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 20   # <--- use Node.js 20 runtime in CodeBuild
     commands:
-      - npm install
+      - npm ci
   build:
     commands:
       - npm run build
+  post_build:
+    commands:
+      - npm test   # <--- optional, if you want to run tests before deploying
 
 artifacts:
-  base-directory: build 
+  base-directory: build
   files:
     - '**/*'
+
+cache:
+  paths:
+    - node_modules/**/*
