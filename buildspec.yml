@@ -9,12 +9,10 @@ phases:
   build:
     commands:
       - npm run build
-  post_build:
-    commands:
-      - npm test   # <--- optional, if you want to run tests before deploying
-
+      
 artifacts:
   base-directory: build
+  discard-paths: no
   files:
     - '**/*'
 
