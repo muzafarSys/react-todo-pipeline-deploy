@@ -51,10 +51,10 @@ function App() {
 
     <>
      <div className="h-screen flex items-center justify-center bg-gradient-to-r from-green-400 to-blue-500">
-      <h1 className="text-4xl font-bold text-white">✅ Tailwind is working! Its test commit to deploy using CI/CD pipelines</h1>
+      <h1 className="text-4xl font-bold text-white">✅ Tailwind is working! Its test commit to deploy using CI/CD pipelines next iterations</h1>
     </div>
      <Router>
-      <Routes>
+      <Routes> 
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/users" element={<UsersList />} />
