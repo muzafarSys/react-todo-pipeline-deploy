@@ -9,6 +9,11 @@ phases:
   build:
     commands:
       - npm run build
+  post_build:
+    commands:
+      - aws s3 sync build/ s3://react-todo-deployment-app/ --delete
+      - aws cloudfront create-invalidation --distribution-id EWLNGK8NKKLSG --paths "/*"
+      - aws cloudfront create-invalidation --distribution-id E30NT0JKFJ7F1Q --paths "/*"
 
 artifacts:
   files:
